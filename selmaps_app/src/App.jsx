@@ -5,6 +5,11 @@ import './styles/App.css';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 function App() {
+  const [isMapDark, setIsMapDark] = useState(true)
+  const toggleMapLight = () => {
+    setIsMapDark(!isMapDark);
+  }
+
   const [activeLayers, setActiveLayers] = useState({
     parks: true,
     hotels: true,
@@ -45,8 +50,8 @@ function App() {
 
   return (
     <>
-      <SideBar activeLayers={activeLayers} toggleLayer={toggleLayer} activeOptions={activeOptions} toggleOption={toggleOption} />
-      <Map activeLayers={activeLayers} activeOptions={activeOptions} />
+      <SideBar activeLayers={activeLayers} toggleLayer={toggleLayer} activeOptions={activeOptions} toggleOption={toggleOption} toggleMapLight={toggleMapLight} isMapDark={isMapDark}/>
+      <Map activeLayers={activeLayers} activeOptions={activeOptions} isMapDark={isMapDark}/>
     </>
   );
 }

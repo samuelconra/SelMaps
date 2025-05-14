@@ -14,7 +14,7 @@ const BOUNDS = [
 ];
 
 
-function Map ({activeLayers, activeOptions}) {
+function Map ({activeLayers, activeOptions, isMapDark}) {
     // CONST
     const mapContainer = useRef(null);
     const mapRef = useRef(null);
@@ -63,6 +63,12 @@ function Map ({activeLayers, activeOptions}) {
         return () => map.remove();
     }, []);
 
+    useEffect(() => {
+        const map = mapRef.current;
+        const mapStyle = isMapDark ? 'night' : 'light'
+        console.log(mapStyle)
+        map.setConfigProperty('basemap', 'lightPreset', mapStyle);
+    }, [isMapDark])
 
     useEffect(() => {
         const map = mapRef.current;
