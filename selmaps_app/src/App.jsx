@@ -10,19 +10,43 @@ function App() {
     hotels: true,
     attractions: true
   });
+  const [activeOptions, setActiveOptions] = useState({
+    neighbors: false,
+    distances: false,
+    buffer: false,
+    clustering: false,
+    area: false,
+  });
 
   const toggleLayer = (layer) => {
-    console.log(activeLayers)
     setActiveLayers(prev => ({
       ...prev,
       [layer]: !prev[layer]
     }));
   };
 
+  const toggleOption = (option) => {
+    setActiveOptions(prev => {
+      const isCurrentlyActive = prev[option];
+
+      const newState = Object.keys(prev).reduce((acc, key) => {
+        acc[key] = false;
+        return acc;
+      }, {});
+
+      if (!isCurrentlyActive) {
+        newState[option] = true;
+      }
+
+      return newState;
+    });
+  };
+
+
   return (
     <>
-      <SideBar activeLayers={activeLayers} toggleLayer={toggleLayer} />
-      <Map activeLayers={activeLayers} />
+      <SideBar activeLayers={activeLayers} toggleLayer={toggleLayer} activeOptions={activeOptions} toggleOption={toggleOption} />
+      <Map activeLayers={activeLayers} activeOptions={activeOptions} />
     </>
   );
 }
