@@ -1,9 +1,10 @@
 CREATE TABLE Parques (
     id SERIAL PRIMARY KEY,
-    nombre TEXT,
+    nombre VARCHAR(255) NOT NULL,
     direccion TEXT,
-    accesible BOOLEAN,
-    coordenadas GEOMETRY(Polygon, 4326)
+    descripcion TEXT,
+    accesible BOOLEAN DEFAULT FALSE,
+    coordenadas GEOMETRY(POLYGON, 4326)
 );
 
 CREATE TABLE Hoteles (
