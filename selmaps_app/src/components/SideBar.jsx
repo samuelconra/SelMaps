@@ -4,6 +4,8 @@ import { RiPinDistanceLine } from "react-icons/ri";
 import { HiOutlineBuildingOffice } from "react-icons/hi2";
 import { CgTrees } from "react-icons/cg";
 import { MdOutlineAttractions } from "react-icons/md";
+import { FaMoon } from "react-icons/fa";
+import { MdWbSunny } from "react-icons/md";
 import SideBarElement from "./SideBarElement";
 
 const sidebarOptions = [
@@ -17,7 +19,7 @@ const sidebarOptions = [
     { name: 'Attractions', icon: <MdOutlineAttractions />, type: 'filter', functionality: 'attractions' },
 ];
 
-function SideBar({ activeLayers, toggleLayer, activeOptions, toggleOption }) {
+function SideBar({ activeLayers, toggleLayer, activeOptions, toggleOption, toggleMapLight, isMapDark }) {
     return (
         <section id="sidebar">
             <h1>Sel<span>Maps</span></h1>
@@ -39,6 +41,10 @@ function SideBar({ activeLayers, toggleLayer, activeOptions, toggleOption }) {
                     toggleLayer={toggleLayer}
                 />
             ))}
+
+            <button className="toggle-style" onClick={toggleMapLight}>
+                {isMapDark ? <FaMoon/> : <MdWbSunny/>}
+            </button>
         </section>
     );
 }
