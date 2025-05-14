@@ -15,11 +15,11 @@ export function addAttractionsLayer(map, data) {
         type: 'circle',
         source: 'attractions-source',
         paint: {
-            'circle-color': '#ffca27',
+            'circle-color': '#dcae21',
             'circle-radius': 6,
             'circle-stroke-width': 2,
             'circle-stroke-color': '#ffffff',
-            'circle-emissive-strength': 0.6
+            'circle-emissive-strength': 0.7
         },
     });
 }

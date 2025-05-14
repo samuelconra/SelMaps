@@ -7,21 +7,24 @@ import { MdOutlineAttractions } from "react-icons/md";
 import SideBarElement from "./SideBarElement";
 
 const sidebarOptions = [
-    { name: 'Neighbors', icon: <TiLocationArrowOutline />, type: 'option' },
-    { name: 'Distances', icon: <RiPinDistanceLine />, type: 'option' },
-    { name: 'Hotels', icon: <HiOutlineBuildingOffice />, type: 'filter', filter: 'hotels' },
-    { name: 'Parks', icon: <CgTrees />, type: 'filter', filter: 'parks' },
-    { name: 'Attractions', icon: <MdOutlineAttractions />, type: 'filter', filter: 'attractions' },
+    { name: 'Neighbors', icon: <TiLocationArrowOutline />, type: 'option', functionality: 'neighbors'},
+    { name: 'Distances', icon: <RiPinDistanceLine />, type: 'option', functionality: 'distances' },
+    { name: 'Buffer', icon: <RiPinDistanceLine />, type: 'option', functionality: 'buffer' },
+    { name: 'Clustering', icon: <RiPinDistanceLine />, type: 'option', functionality: 'clustering' },
+    { name: 'Area', icon: <RiPinDistanceLine />, type: 'option', functionality: 'area' },
+    { name: 'Hotels', icon: <HiOutlineBuildingOffice />, type: 'filter', functionality: 'hotels' },
+    { name: 'Parks', icon: <CgTrees />, type: 'filter', functionality: 'parks' },
+    { name: 'Attractions', icon: <MdOutlineAttractions />, type: 'filter', functionality: 'attractions' },
 ];
 
-function SideBar({ activeLayers, toggleLayer }) {
+function SideBar({ activeLayers, toggleLayer, activeOptions, toggleOption }) {
     return (
         <section id="sidebar">
             <h1>Sel<span>Maps</span></h1>
 
             {/* OPTIONS */}
             {sidebarOptions.filter(e => e.type === 'option').map((e, index) => (
-                <SideBarElement key={index} {...e} />
+                <SideBarElement key={index} {...e} isSelected={activeOptions[e.functionality]} toggleOption={toggleOption}/>
             ))}
 
             <div className="separator"></div>
@@ -32,7 +35,7 @@ function SideBar({ activeLayers, toggleLayer }) {
                 <SideBarElement
                     key={index}
                     {...e}
-                    isSelected={activeLayers[e.filter]}
+                    isSelected={activeLayers[e.functionality]}
                     toggleLayer={toggleLayer}
                 />
             ))}

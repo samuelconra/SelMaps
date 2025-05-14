@@ -114,3 +114,144 @@ body{
 .mapboxgl-ctrl-logo, .mapboxgl-ctrl-geocoder--powered-by, .mapboxgl-ctrl-attrib{
     display: none !important;
 }
+
+
+
+/* POPUP HOTEL */
+.mapboxgl-popup {
+    max-width: 300px !important;
+    width: 300px !important;
+}
+.mapboxgl-popup-content{
+    border-radius: 10px !important;
+}
+
+.popup-hotel{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 15px;
+    padding: 0px 10px;
+    padding-top: 20px;
+    color: black;
+    overflow: hidden;
+}
+.indicator{
+    position: absolute;
+    padding: 5px 10px;
+    border-radius: 5px;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+    color: white;
+}
+.popupicon{
+    position: absolute;
+    color: #1e3050;
+    font-size: 120px;
+    opacity: 0.12;
+    right: -40px;
+}
+
+.popup-hotel .header{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+.popup-hotel .header h1{
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.popup-hotel .header .stars{
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+.popup-hotel .header .stars h2{
+    font-weight: 500;
+    font-size: 15px;
+}
+.popup-hotel .header .stars i{
+    color: #dea31b;
+    font-size: 12px;
+    margin-bottom: 1px;
+}
+
+.popup-hotel .content{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.popup-hotel .content p{
+    font-size: 13px;
+    font-weight: 600;
+}
+.popup-hotel .content span{
+    font-weight: 300;
+}
+
+.popup-hotel .icons{
+    display: flex;
+    gap: 10px;
+}
+.popup-hotel .icons i{
+    font-size: 14px;
+}
+
+
+/* POPUP ATTRACTION */
+.popup-attraction{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 10px;
+    color: black;
+    overflow: hidden;
+}
+.handicap{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 12px;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    background-color: #145197;
+}
+
+.popup-attraction h1{
+    font-weight: 600;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+}
+.popup-attraction p{
+    font-size: 10px;
+    font-weight: 600;
+}
+.popup-attraction  span{
+    font-weight: 300;
+    font-size: 10px;
+    line-height: 10px;
+}
+
+
+
+.map-info{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 10px;
+    padding-right: 40px;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(4px);
+}
